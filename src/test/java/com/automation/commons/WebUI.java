@@ -3,8 +3,10 @@ package com.automation.commons;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -139,6 +141,24 @@ public class WebUI{
         logConsole("Clear text in element: " + by);
         driver.findElement(by).clear();
         logConsole("Clear text completed");
+    }
+
+    public static void selectDropdownByValue(By by, String value) {
+        waitElementTobeVisible(by);
+        logConsole("Select dropdown by value: " + value + " in element: " + by);
+        WebElement dropdown = driver.findElement(by);
+        Select select = new Select(dropdown);
+        select.selectByValue(value);
+        logConsole("Select dropdown completed");
+    }
+
+    public static void selectDropdownByIndex(By by, int index) {
+        waitElementTobeVisible(by);
+        logConsole("Select dropdown by index: " + index + " in element: " + by);
+        WebElement dropdown = driver.findElement(by);
+        Select select = new Select(dropdown);
+        select.selectByIndex(index);
+        logConsole("Select dropdown completed");
     }
 
     public static boolean verifyEquals(Object actual, Object expected) {
