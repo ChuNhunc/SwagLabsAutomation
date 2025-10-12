@@ -14,6 +14,7 @@ public class BaseTest {
     public void createDriver() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.get("https://www.saucedemo.com/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(50));
     }

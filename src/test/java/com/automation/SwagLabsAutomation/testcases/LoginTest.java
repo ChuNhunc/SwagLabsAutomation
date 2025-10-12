@@ -51,7 +51,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void testLoginWithWrongPassword() {
         loginPage = new LoginPage(driver);
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login("standard_user", "wrong_password");
         loginPage.verifyLoginWithWrongUsernameOrPassword();
     }
 

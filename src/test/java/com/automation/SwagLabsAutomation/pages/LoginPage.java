@@ -10,12 +10,12 @@ public class LoginPage {
         this.driver = driver;
         new WebUI(driver);
     }
-    private By userName = By.id("username");
+    private By userName = By.id("user-name");
     private By password = By.id("password");
     private By errorMsg = By.xpath("//h3[@data-test='error']");
     private By errMsgCloseButton = By.className("error-button");
     private By usernameErrIcon = By.xpath("//div[@class='login-box']//div[1]//*[name()='svg']");
-    private By passwordErrIcon = By.className("//div[@class='login_wrapper-inner']//div[2]//*[name()='svg']");
+    private By passwordErrIcon = By.xpath("//div[@class='login_wrapper-inner']//div[2]//*[name()='svg']");
     private By loginBtn = By.className("submit-button");
 
     public void enterUsername(String username) {
@@ -116,7 +116,7 @@ public class LoginPage {
         verifyUsernameErrorIconIsDisplayed();
         verifyPasswordErrorIconIsDisplayed();
         verifyErrorMessageTextIsDisplayed();
-        WebUI.assertEquals(getErrorMessageText(), "Epic sadface: Password is required","Username blank error message is not displayed as expected");
+        WebUI.assertEquals(getErrorMessageText(), "Epic sadface: Username is required","Username blank error message is not displayed as expected");
     }
 
     public void verifyLoginWithWrongUsernameOrPassword() {
